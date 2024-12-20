@@ -1,0 +1,74 @@
+.calendar-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7열 */
+  gap: 10px;
+  padding: 20px;
+  background-color: #f7f9fc;
+  border-radius: 12px;
+  max-width: 600px; /* 최대 너비 설정 */
+  width: 100%; /* 부모의 너비에 맞춤 */
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.calendar-cell {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.calendar-grid {
+  display: grid; /* grid 컨테이너로 설정 */
+  grid-template-columns: repeat(7, 1fr); /* 7열 */
+  gap: 10px;
+  width: 100%; /* 부모 요소의 전체 너비 사용 */
+}
+
+/* 비활성 날짜 스타일 (빈 칸) */
+.calendar-cell.inactive {
+  background-color: #f0f0f0;
+  pointer-events: none;
+  visibility: hidden; /* 빈칸을 보이지 않게 */
+}
+
+/* 날짜 활성화 및 호버 효과 */
+.calendar-cell.active:hover {
+  background-color: #007bff;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* 현재 날짜 강조 */
+.calendar-cell.active.today {
+  background-color: #ffd700;
+  color: #000000;
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+/* 일정 표시 스타일 */
+.schedule-indicator {
+  margin-top: 8px;
+  font-size: 12px;
+  background-color: #ff6f61;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* 주말 스타일 */
+.calendar-grid .calendar-cell:nth-child(7n+1) {
+  color: #ff4d4f; /* 일요일 */
+}
+
+.calendar-grid .calendar-cell:nth-child(7n) {
+  color: #1890ff; /* 토요일 */
+}
